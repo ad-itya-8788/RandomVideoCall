@@ -199,7 +199,7 @@ async function startChatting() {
   try {
     // Check if socket is connected
     if (!isSocketConnected) {
-      showConnectionError("Not connected to server. Please refresh the page and try again.")
+      showConnectionError("Not connected to server. Please refresh the page and try again. ")
       return
     }
 
