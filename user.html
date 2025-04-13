@@ -1,8 +1,12 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
+=======
+>>>>>>> ed5da244be25aab7ba80396ce6fe7666530e2ea7
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
+<<<<<<< HEAD
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
     content="Omegel.in is a free random video chat platform to talk with strangers from around the world. Start anonymous webcam chat instantly without registration or login.">
@@ -32,6 +36,13 @@
 
   <title>Random Video Chat | Omegel.in</title>
 
+=======
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>Random Video Chat</title>
+>>>>>>> ed5da244be25aab7ba80396ce6fe7666530e2ea7
   <style>
     :root {
       --primary: #3a86ff;
@@ -49,13 +60,23 @@
       padding: 0;
       box-sizing: border-box;
       -webkit-tap-highlight-color: transparent;
+<<<<<<< HEAD
+=======
+      touch-action: manipulation;
+>>>>>>> ed5da244be25aab7ba80396ce6fe7666530e2ea7
     }
 
     html,
     body {
+<<<<<<< HEAD
       height: 100%;
       overflow-x: hidden;
       scroll-behavior: smooth;
+=======
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+>>>>>>> ed5da244be25aab7ba80396ce6fe7666530e2ea7
     }
 
     body {
@@ -63,6 +84,7 @@
       background-color: #f0f2f5;
       color: var(--dark);
       line-height: 1.6;
+<<<<<<< HEAD
       display: flex;
       flex-direction: column;
       touch-action: manipulation;
@@ -82,10 +104,30 @@
       padding: 0.75rem;
       display: flex;
       flex-direction: column;
+=======
+      min-height: 100vh;
+      /* Mobile viewport height fix */
+      min-height: -webkit-fill-available;
+      width: 100%;
+      position: relative;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .container {
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 0.5rem;
+      height: 100%;
+      min-height: -webkit-fill-available;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+>>>>>>> ed5da244be25aab7ba80396ce6fe7666530e2ea7
     }
 
     header {
       text-align: center;
+<<<<<<< HEAD
       padding: 0.75rem 0;
       border-bottom: 1px solid #ddd;
       margin-bottom: 1rem;
@@ -100,30 +142,65 @@
 
     .subtitle {
       font-size: 1rem;
+=======
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+>>>>>>> ed5da244be25aab7ba80396ce6fe7666530e2ea7
       color: var(--gray);
     }
 
     .status-bar {
       background-color: var(--light);
+<<<<<<< HEAD
       padding: 0.75rem;
       border-radius: 8px;
       margin-bottom: 1rem;
+=======
+      padding: 0.5rem;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+>>>>>>> ed5da244be25aab7ba80396ce6fe7666530e2ea7
       display: flex;
       justify-content: space-between;
       align-items: center;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+<<<<<<< HEAD
+=======
+      flex-shrink: 0;
+>>>>>>> ed5da244be25aab7ba80396ce6fe7666530e2ea7
     }
 
     .status-indicator {
       display: flex;
       align-items: center;
       font-weight: 500;
+<<<<<<< HEAD
       font-size: 0.95rem;
     }
 
     .status-dot {
       width: 12px;
       height: 12px;
+=======
+      font-size: 0.9rem;
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+>>>>>>> ed5da244be25aab7ba80396ce6fe7666530e2ea7
       border-radius: 50%;
       margin-right: 8px;
     }
@@ -144,6 +221,7 @@
     .user-count {
       background-color: var(--primary);
       color: white;
+<<<<<<< HEAD
       padding: 0.25rem 0.75rem;
       border-radius: 20px;
       font-size: 0.9rem;
@@ -157,10 +235,19 @@
       min-height: 0;
     }
 
+=======
+      padding: 0.25rem 0.5rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+>>>>>>> ed5da244be25aab7ba80396ce6fe7666530e2ea7
     .video-container {
       display: flex;
       flex-direction: column;
       flex: 1;
+<<<<<<< HEAD
       gap: 1rem;
       margin-bottom: 1.25rem;
     }
@@ -173,6 +260,68 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
       aspect-ratio: 16/9;
       width: 100%;
+=======
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      position: relative;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    @media (min-width: 768px) {
+      .container {
+        padding: 1rem;
+        max-width: 1200px;
+      }
+
+      header {
+        padding: 1rem 0;
+        margin-bottom: 1rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+      }
+
+      .status-bar {
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+      }
+
+      .status-indicator {
+        font-size: 1rem;
+      }
+
+      .status-dot {
+        width: 12px;
+        height: 12px;
+      }
+
+      .user-count {
+        padding: 0.25rem 0.75rem;
+        font-size: 0.9rem;
+      }
+
+      .video-container {
+        flex-direction: row;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+    }
+
+    .video-wrapper {
+      flex: 1;
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: #000;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      min-height: 35vh;
+>>>>>>> ed5da244be25aab7ba80396ce6fe7666530e2ea7
     }
 
     video {
@@ -192,14 +341,19 @@
       color: white;
       padding: 0.25rem 0.5rem;
       border-radius: 4px;
+<<<<<<< HEAD
       font-size: 0.85rem;
       font-weight: 500;
+=======
+      font-size: 0.8rem;
+>>>>>>> ed5da244be25aab7ba80396ce6fe7666530e2ea7
       z-index: 5;
     }
 
     .controls {
       display: flex;
       justify-content: center;
+<<<<<<< HEAD
       gap: 0.75rem;
       padding: 0.75rem 0;
       flex-wrap: wrap;
@@ -213,6 +367,19 @@
       border: none;
       border-radius: 8px;
       font-size: 0.95rem;
+=======
+      gap: 0.5rem;
+      padding: 0.5rem 0;
+      flex-wrap: wrap;
+      flex-shrink: 0;
+    }
+
+    button {
+      padding: 0.8rem 1.2rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+>>>>>>> ed5da244be25aab7ba80396ce6fe7666530e2ea7
       font-weight: 600;
       cursor: pointer;
       transition: all 0.2s ease;
@@ -224,7 +391,11 @@
       -moz-appearance: none;
       appearance: none;
       touch-action: manipulation;
+<<<<<<< HEAD
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+=======
+      min-width: 100px;
+>>>>>>> ed5da244be25aab7ba80396ce6fe7666530e2ea7
     }
 
     button:active {
@@ -234,6 +405,10 @@
     button:disabled {
       opacity: 0.6;
       cursor: not-allowed;
+<<<<<<< HEAD
+=======
+      transform: none !important;
+>>>>>>> ed5da244be25aab7ba80396ce6fe7666530e2ea7
     }
 
     .btn-primary {
@@ -241,7 +416,12 @@
       color: white;
     }
 
+<<<<<<< HEAD
     .btn-primary:hover:not(:disabled) {
+=======
+    .btn-primary:hover:not(:disabled),
+    .btn-primary:active:not(:disabled) {
+>>>>>>> ed5da244be25aab7ba80396ce6fe7666530e2ea7
       background-color: var(--primary-hover);
     }
 
@@ -250,7 +430,12 @@
       color: white;
     }
 
+<<<<<<< HEAD
     .btn-danger:hover:not(:disabled) {
+=======
+    .btn-danger:hover:not(:disabled),
+    .btn-danger:active:not(:disabled) {
+>>>>>>> ed5da244be25aab7ba80396ce6fe7666530e2ea7
       background-color: #d63d62;
     }
 
@@ -259,7 +444,12 @@
       color: white;
     }
 
+<<<<<<< HEAD
     .btn-secondary:hover:not(:disabled) {
+=======
+    .btn-secondary:hover:not(:disabled),
+    .btn-secondary:active:not(:disabled) {
+>>>>>>> ed5da244be25aab7ba80396ce6fe7666530e2ea7
       background-color: #5a6268;
     }
 
@@ -287,7 +477,11 @@
     }
 
     .waiting-screen p {
+<<<<<<< HEAD
       font-size: 0.95rem;
+=======
+      font-size: 0.9rem;
+>>>>>>> ed5da244be25aab7ba80396ce6fe7666530e2ea7
       max-width: 80%;
     }
 
@@ -301,6 +495,25 @@
       margin-bottom: 1rem;
     }
 
+<<<<<<< HEAD
+=======
+    .debug-panel {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #0f0;
+      font-family: monospace;
+      font-size: 10px;
+      padding: 5px;
+      z-index: 1000;
+      max-height: 100px;
+      overflow-y: auto;
+      display: none;
+    }
+
+>>>>>>> ed5da244be25aab7ba80396ce6fe7666530e2ea7
     .connection-error {
       position: absolute;
       top: 50%;
@@ -315,6 +528,19 @@
       max-width: 80%;
     }
 
+<<<<<<< HEAD
+=======
+    .connection-error h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .connection-error button {
+      margin-top: 1rem;
+      background-color: white;
+      color: var(--danger);
+    }
+
+>>>>>>> ed5da244be25aab7ba80396ce6fe7666530e2ea7
     @keyframes pulse {
       0% {
         opacity: 0.6;
@@ -339,6 +565,30 @@
       display: none !important;
     }
 
+<<<<<<< HEAD
+=======
+    /* iOS specific fixes */
+    @supports (-webkit-touch-callout: none) {
+
+      body,
+      .container {
+        height: -webkit-fill-available;
+      }
+
+      video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      button {
+        padding: 0.9rem 1.4rem;
+      }
+    }
+
+>>>>>>> ed5da244be25aab7ba80396ce6fe7666530e2ea7
     /* Connection quality indicator */
     .connection-quality {
       position: absolute;
@@ -348,7 +598,11 @@
       color: white;
       padding: 0.25rem 0.5rem;
       border-radius: 4px;
+<<<<<<< HEAD
       font-size: 0.85rem;
+=======
+      font-size: 0.8rem;
+>>>>>>> ed5da244be25aab7ba80396ce6fe7666530e2ea7
       display: flex;
       align-items: center;
       gap: 5px;
@@ -378,6 +632,7 @@
       background-color: var(--warning);
     }
 
+<<<<<<< HEAD
     /* Fix for local video wrapper */
     #localVideo {
       position: relative;
@@ -538,10 +793,24 @@
     }
 
 
+=======
+    /* Prevent zooming on input */
+    input,
+    textarea,
+    select {
+      font-size: 16px;
+    }
+
+    /* Better touch feedback */
+    button:active {
+      opacity: 0.8;
+    }
+>>>>>>> ed5da244be25aab7ba80396ce6fe7666530e2ea7
   </style>
 </head>
 
 <body>
+<<<<<<< HEAD
   <div class="page-wrapper">
     <div class="container">
       <header>
@@ -634,10 +903,118 @@
   All rights reserved.
 </footer>
 
+=======
+  <div class="container">
+    <header>
+      <h1>Random Video Chat</h1>
+      <p class="subtitle">Talk to random strangers instantly</p>
+    </header>
+
+    <div class="status-bar">
+      <div class="status-indicator">
+        <div class="status-dot disconnected" id="statusDot"></div>
+        <span id="statusText">Disconnected</span>
+      </div>
+      <div class="user-count" id="userCount">0 online</div>
+    </div>
+
+    <div class="video-container">
+      
+
+      <div class="video-wrapper">
+        <video id="remoteVideo" autoplay playsinline></video>
+        <div class="video-label">Stranger</div>
+        <div class="connection-quality hidden" id="connectionQuality">
+          <span>Connection:</span>
+          <div class="quality-bars">
+            <div class="quality-bar"></div>
+            <div class="quality-bar"></div>
+            <div class="quality-bar"></div>
+            <div class="quality-bar"></div>
+          </div>
+        </div>
+
+        <div class="waiting-screen" id="waitingScreen">
+          <div class="spinner"></div>
+          <h2>Finding someone to chat with...</h2>
+          <p>Please wait while we connect you with a random stranger</p>
+        </div>
+
+        <div class="connection-error hidden" id="connectionError">
+          <h3><!--Connection Failed--></h3>
+          <p><!--Unable to connect to another user. This could be due to network issues or firewall settings.--></p>
+          <button id="retryBtn">Try Again</button>
+        </div>
+      </div>
+      <div class="video-wrapper">
+        <video id="localVideo" autoplay muted playsinline></video>
+        <div class="video-label">You</div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button id="startBtn" class="btn-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+          <path
+            d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z" />
+        </svg>
+        Start
+      </button>
+
+      <button id="nextBtn" class="btn-primary" disabled>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+        </svg>
+        Next
+      </button>
+
+      <button id="audioBtn" class="btn-secondary" disabled>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path
+            d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z" />
+          <path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0v5zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3z" />
+        </svg>
+        Mute
+      </button>
+        <button id="endBtn" disabled style="display: none;">
+        </button>
+              <button id="videoBtn" disabled style="display: none;">
+              </button>
+    </div>
+>>>>>>> ed5da244be25aab7ba80396ce6fe7666530e2ea7
   </div>
 
   <script src="/socket.io/socket.io.js"></script>
   <script src="client.js"></script>
+<<<<<<< HEAD
+=======
+
+  <script>
+    // Add touch event listeners to ensure buttons work on mobile
+    document.addEventListener('DOMContentLoaded', function () {
+      // Add touch feedback for buttons
+      const buttons = document.querySelectorAll('button');
+      buttons.forEach(button => {
+        button.addEventListener('touchstart', function () {
+          this.classList.add('active');
+        }, { passive: true });
+
+        button.addEventListener('touchend', function () {
+          this.classList.remove('active');
+        }, { passive: true });
+      });
+
+      // Prevent default touch behavior that might interfere with button clicks
+      document.addEventListener('touchmove', function (e) {
+        if (e.target.tagName === 'BUTTON') {
+          e.preventDefault();
+        }
+      }, { passive: false });
+    });
+  </script>
+>>>>>>> ed5da244be25aab7ba80396ce6fe7666530e2ea7
 </body>
 
 </html>
