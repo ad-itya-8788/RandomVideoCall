@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Omegel.in is a free random video chat platform to talk with strangers from around the world. Start anonymous webcam chat instantly without registration or login.">
+  <meta name="keywords"
+    content="random video chat, talk to strangers, free video call, anonymous webcam chat, no login video chat, Omegle alternative, online stranger chat, live video chat">
+  <meta name="author" content="Omegel.in Team">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.omegel.in/">
+
+  <!-- Favicon (Image is in the root folder) -->
+  <link rel="icon" href="logovc.png" type="image/png">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Omegel.in – Talk to Strangers via Live Video Chat">
+  <meta property="og:description"
+    content="Join Omegel.in to instantly video chat with strangers worldwide. No login or sign-up needed!">
+  <meta property="og:image" content="https://www.omegel.in/logovc.png">
+  <meta property="og:url" content="https://www.omegel.in/">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Random Video Chat with Strangers | Omegel.in">
+  <meta name="twitter:description"
+    content="Video chat with strangers from anywhere in the world instantly and anonymously. Try Omegel.in now!">
+  <meta name="twitter:image" content="https://www.omegel.in/logovc.png">
+
+  <title>Random Video Chat | Omegel.in</title>
+
+  <style>
+    :root {
+      --primary: #3a86ff;
+      --primary-hover: #2a76ef;
+      --danger: #ef476f;
+      --success: #06d6a0;
+      --warning: #ffd166;
+      --dark: #1b1b1b;
+      --light: #f8f9fa;
+      --gray: #6c757d;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html,
+    body {
+      height: 100%;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      background-color: #f0f2f5;
+      color: var(--dark);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      touch-action: manipulation;
+    }
+
+    .page-wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .container {
+      flex: 1;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.75rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      text-align: center;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 1.75rem;
+      color: var(--primary);
+      margin-bottom: 0.25rem;
+      font-weight: 700;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: var(--gray);
+    }
+
+    .status-bar {
+      background-color: var(--light);
+      padding: 0.75rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .status-indicator {
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .status-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+
+    .status-dot.connecting {
+      background-color: var(--warning);
+      animation: pulse 1.5s infinite;
+    }
+
+    .status-dot.connected {
+      background-color: var(--success);
+    }
+
+    .status-dot.disconnected {
+      background-color: var(--danger);
+    }
+
+    .user-count {
+      background-color: var(--primary);
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-height: 0;
+    }
+
+    .video-container {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .video-wrapper {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      background-color: #000;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      aspect-ratio: 16/9;
+      width: 100%;
+    }
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background-color: #000;
+      transform: scaleX(-1);
+      /* Mirror effect for selfie view */
+    }
+
+    .video-label {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      z-index: 5;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 0.75rem 0;
+      flex-wrap: wrap;
+      width: 100%;
+      position: relative;
+      z-index: 10;
+    }
+
+    button {
+      padding: 0.75rem 1.25rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      touch-action: manipulation;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      background-color: var(--primary-hover);
+    }
+
+    .btn-danger {
+      background-color: var(--danger);
+      color: white;
+    }
+
+    .btn-danger:hover:not(:disabled) {
+      background-color: #d63d62;
+    }
+
+    .btn-secondary {
+      background-color: var(--gray);
+      color: white;
+    }
+
+    .btn-secondary:hover:not(:disabled) {
+      background-color: #5a6268;
+    }
+
+    .waiting-screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      z-index: 10;
+      border-radius: 8px;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .waiting-screen h2 {
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .waiting-screen p {
+      font-size: 0.95rem;
+      max-width: 80%;
+    }
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      border-top-color: white;
+      animation: spin 1s ease-in-out infinite;
+      margin-bottom: 1rem;
+    }
+
+    .connection-error {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(239, 71, 111, 0.9);
+      color: white;
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      z-index: 20;
+      max-width: 80%;
+    }
+
+    @keyframes pulse {
+      0% {
+        opacity: 0.6;
+      }
+
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0.6;
+      }
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* Connection quality indicator */
+    .connection-quality {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      z-index: 5;
+    }
+
+    .quality-bars {
+      display: flex;
+      gap: 2px;
+    }
+
+    .quality-bar {
+      width: 3px;
+      height: 10px;
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .quality-bar.active {
+      background-color: var(--success);
+    }
+
+    .quality-poor .quality-bar.active {
+      background-color: var(--danger);
+    }
+
+    .quality-medium .quality-bar.active {
+      background-color: var(--warning);
+    }
+
+    /* Fix for local video wrapper */
+    #localVideo {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Ensure video elements are properly layered */
+    .video-wrapper video {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Make sure waiting screen doesn't cover local video */
+    #localVideoWrapper .waiting-screen {
+      display: none !important;
+    }
+
+    /* Footer styling */
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #10101d;
+      color: #fffdfd;
+      width: 100%;
+      margin-top: auto;
+    }
+
+    /* iOS specific fixes */
+    @supports (-webkit-touch-callout: none) {
+      .page-wrapper {
+        min-height: -webkit-fill-available;
+      }
+
+      button {
+        padding: 0.8rem 1.2rem;
+      }
+    }
+
+    /* Responsive design for different screen sizes */
+
+    /* Tablet (portrait) */
+    @media (min-width: 768px) {
+      .video-container {
+        flex-direction: row;
+      }
+
+      .video-wrapper {
+        aspect-ratio: 4/3;
+      }
+
+      button {
+        min-width: 120px;
+      }
+    }
+
+    /* Laptop and desktop */
+    @media (min-width: 1024px) {
+      .container {
+        padding: 1.5rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .subtitle {
+        font-size: 1.1rem;
+      }
+
+      .video-wrapper {
+        aspect-ratio: 16/9;
+      }
+
+      .controls {
+        gap: 1rem;
+      }
+
+      button {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+      }
+    }
+
+    /* Large desktop */
+    @media (min-width: 1440px) {
+      .container {
+        max-width: 1400px;
+      }
+
+      .video-container {
+        gap: 1.5rem;
+      }
+    }
+
+    /* Mobile specific fixes */
+    @media (max-width: 767px) {
+      .container {
+        padding: 0.5rem;
+      }
+
+      header {
+        padding: 0.5rem 0;
+        margin-bottom: 0.75rem;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .status-bar {
+        padding: 0.5rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .video-container {
+        gap: 0.75rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .video-wrapper {
+    aspect-ratio: unset; 
+    height: 280px;       
+    width: 100%;         
+      }
+
+      .controls {
+        gap: 0.5rem;
+        padding: 0.5rem 0;
+      }
+
+      button {
+        padding: 0.7rem 1rem;
+        font-size: 0.9rem;
+        min-width: 70px;
+      }
+
+      .waiting-screen h2 {
+        font-size: 1.1rem;
+      }
+
+      .waiting-screen p {
+        font-size: 0.85rem;
+      }
+    }
+
+    /* Small mobile devices */
+    @media (max-width: 375px) {
+      .controls {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      button {
+        flex: 0 0 calc(50% - 0.5rem);
+        padding: 0.6rem 0.5rem;
+        font-size: 0.85rem;
+      }
+    }
+
+
+  </style>
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <div class="container">
+      <header>
+        <h1>Random Video Chat</h1>
+        <p class="subtitle">Talk to random strangers instantly</p>
+      </header>
+
+      <div class="status-bar">
+        <div class="status-indicator">
+          <div class="status-dot disconnected" id="statusDot"></div>
+          <span id="statusText">Disconnected</span>
+        </div>
+        <div class="user-count" id="userCount">0 online</div>
+      </div>
+
+      <div class="main-content">
+        <div class="video-container">
+          <div class="video-wrapper" id="remoteVideoWrapper">
+            <video id="remoteVideo" autoplay playsinline></video>
+            <div class="video-label">Stranger</div>
+            <div class="connection-quality hidden" id="connectionQuality">
+              <span>Connection:</span>
+              <div class="quality-bars">
+                <div class="quality-bar"></div>
+                <div class="quality-bar"></div>
+                <div class="quality-bar"></div>
+                <div class="quality-bar"></div>
+              </div>
+            </div>
+
+            <div class="waiting-screen" id="waitingScreen">
+              <div class="spinner"></div>
+              <h2>Finding someone to chat with...</h2>
+              <p>Please wait while we connect you with a random stranger</p>
+            </div>
+
+            <div class="connection-error hidden" id="connectionError">
+              <h3>Connection Failed</h3>
+              <p>Unable to connect to another user. This could be due to network issues or firewall settings.</p>
+              <button id="retryBtn">Try Again</button>
+            </div>
+          </div>
+
+          <div class="video-wrapper" id="localVideoWrapper">
+            <video id="localVideo" autoplay muted playsinline></video>
+            <div class="video-label">You</div>
+          </div>
+        </div>
+
+      <div class="controls">
+      
+        <button id="videoBtn" disabled style="display: none;">
+        </button>
+      
+        <button id="startBtn" class="btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+            <path
+              d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z" />
+          </svg>
+          Start
+        </button>
+      
+        <button id="nextBtn" class="btn-primary" disabled>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+          </svg>
+          Next
+        </button>
+      
+        <button id="audioBtn" class="btn-secondary" disabled>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path
+              d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z" />
+            <path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0v5zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3z" />
+          </svg>
+          Mute
+        </button>
+      
+        <button id="endBtn" disabled style="display: none;">
+        </button>
+      
+      </div>
+
+      </div>
+    </div>
+<footer>
+  <a href="https://www.omegel.in/" style="color: #06d6a0; text-decoration: none;" target="_blank">© omegel.in</a> 2025
+  All rights reserved.
+</footer>
+
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+</body>
+
+</html>

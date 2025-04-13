@@ -1,525 +1,523 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Omegel.in - Free Random Video Chat with Strangers | Anonymous Chat</title>
+  <meta name="description"
+    content="Omegel.in offers free random video chat with strangers worldwide. No registration needed - start anonymous video calls instantly. Meet new people safely and privately.">
+  <meta name="keywords"
+    content="omegel, omegle alternative, random video chat, chat with strangers, anonymous chat, free video chat, online chat, meet new people, video call, webcam chat, stranger chat, random chat, no registration chat, omegle clone, chatroulette alternative, online dating, video dating, social chat, international chat, video meeting, cam chat, free chat site, talk to strangers, random video call, video chat app, omegle video, chat random, chat online, random webcam chat, omegle.com alternative, free cam chat, random cam chat, video chat rooms, chat with girls, chat with boys, worldwide chat, global chat, teen chat, adult chat, safe chat, private chat, secure chat, no login chat, instant chat, video social network, chat platform, video chat website, free video call, random video chat app, best omegle alternative, free online chat, chat site, video chat with strangers, random people chat, anonymous video chat, chat without registration, random video chat site, free cam to cam chat, webcam chat rooms, random cam girls, random cam boys, live video chat, free webcam chat, chat now, talk to random people, random video chat free, online video chat, chat with webcam, random video chat rooms, free random chat, video chat with girls, video chat with boys, best random chat, free chat with strangers, random chat video, free random video chat, chat to strangers, random cam, omegle random chat, free video chat rooms, random chat app, random video chat online, chat with random people, best video chat, random chat site, free random video call, random chat website, video chat with random people, random video chat website, best random video chat, free random video chat sites, random video chat app free, random chat online free, free random video chat no registration">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Omegel.in">
+  <meta property="og:title" content="Omegel.in - Free Random Video Chat with Strangers">
+  <meta property="og:description"
+    content="Chat randomly with strangers via video. No registration needed - start anonymous video calls instantly.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.omegel.in/">
+  <meta property="og:image" content="https://www.omegel.in/assets/social-preview.jpg">
+  <link rel="canonical" href="https://www.omegel.in/">
+  <link rel="icon" type="image/png" href="logovc.png">
 
-<title>Random Video Chat - Talk to Strangers Online Instantly</title>
-<meta name="google-site-verification" content="ZHBYXeWlMdEncgyUWzsbm6qsI-t1cy-qnPaJPp994lM" />
-<meta name="description"
-  content="Free random video chat with strangers worldwide. Talk anonymously, meet new people, and have fun online." />
-<meta name="keywords" content="random video chat, talk to strangers, live webcam, anonymous chat, free video call" />
-<meta name="author" content="Random Video Chat App" />
+  <!-- Preload critical resources -->
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" as="style">
+  <link rel="preload" href="assets/hero-image.webp" as="image">
 
-<meta property="og:title" content="Random Video Chat - Talk to Strangers Online Instantly" />
-<meta property="og:description"
-  content="Join now to meet and talk to new people worldwide through live webcam chat. No sign-up needed!" />
-<meta property="og:url" content="https://randomvideochat.free.nf/" />
-<meta property="og:type" content="website" />
-<meta property="og:image" content="https://randomvideochat.free.nf/assets/vc.png" />
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+<meta name="google-site-verification" content="Bd-RSh9Xk5YoRDK1CQiC26BtXs1ejmmplwmW-c59iYY"/>
   <style>
     :root {
-      --primary: #3a86ff;
-      --primary-hover: #2a76ef;
-      --danger: #ef476f;
-      --success: #06d6a0;
-      --warning: #ffd166;
-      --dark: #1b1b1b;
-      --light: #f8f9fa;
-      --gray: #6c757d;
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --primary-light: #a5b4fc;
+      --secondary: #f43f5e;
+      --dark: #0f172a;
+      --light: #f9fafb;
+      --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
     }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
-    }
-    
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      background-color: #f0f2f5;
-      color: var(--dark);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #1e293b;
       line-height: 1.6;
-      height: 100vh;
-      overflow: hidden;
+      overflow-x: hidden;
+    }
+
+    /* Optimized Navbar */
+    .navbar {
+      background-color: rgba(15, 23, 42, 0.98);
+      padding: 0.75rem 0;
       position: fixed;
       width: 100%;
-      touch-action: manipulation;
-    }
-    
-    .container {
-      max-width: 100%;
-      margin: 0 auto;
-      padding: 0.5rem;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-    }
-    
-    header {
-      text-align: center;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid #ddd;
-      margin-bottom: 0.5rem;
-    }
-    
-    h1 {
-      font-size: 1.5rem;
-      color: var(--primary);
-      margin-bottom: 0.25rem;
-    }
-    
-    .subtitle {
-      font-size: 0.9rem;
-      color: var(--gray);
-    }
-    
-    .status-bar {
-      background-color: var(--light);
-      padding: 0.5rem;
-      border-radius: 8px;
-      margin-bottom: 0.5rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    
-    .status-indicator {
-      display: flex;
-      align-items: center;
-      font-weight: 500;
-      font-size: 0.9rem;
-    }
-    
-    .status-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      margin-right: 8px;
-    }
-    
-    .status-dot.connecting {
-      background-color: var(--warning);
-      animation: pulse 1.5s infinite;
-    }
-    
-    .status-dot.connected {
-      background-color: var(--success);
-    }
-    
-    .status-dot.disconnected {
-      background-color: var(--danger);
-    }
-    
-    .user-count {
-      background-color: var(--primary);
-      color: white;
-      padding: 0.25rem 0.5rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
-    
-    .video-container {
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-      gap: 0.5rem;
-      margin-bottom: 0.5rem;
-      position: relative;
-      min-height: 0;
-      overflow: hidden;
-    }
-    
-    @media (min-width: 768px) {
-      .container {
-        padding: 1rem;
-        max-width: 1200px;
-      }
-      
-      header {
-        padding: 1rem 0;
-        margin-bottom: 1rem;
-      }
-      
-      h1 {
-        font-size: 2rem;
-      }
-      
-      .subtitle {
-        font-size: 1rem;
-      }
-      
-      .status-bar {
-        padding: 0.75rem;
-        margin-bottom: 1rem;
-      }
-      
-      .status-indicator {
-        font-size: 1rem;
-      }
-      
-      .status-dot {
-        width: 12px;
-        height: 12px;
-      }
-      
-      .user-count {
-        padding: 0.25rem 0.75rem;
-        font-size: 0.9rem;
-      }
-      
-      .video-container {
-        flex-direction: row;
-        gap: 1rem;
-        margin-bottom: 1rem;
-      }
-    }
-    
-    .video-wrapper {
-      flex: 1;
-      position: relative;
-      border-radius: 8px;
-      overflow: hidden;
-      background-color: #000;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);https://4221-2409-40c2-103d-7921-c39-ab62-9462-b885.ngrok-free.app/
-      min-height: 35vh;
-    }
-    
-    video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      background-color: #000;
-      transform: scaleX(-1); /* Mirror effect for selfie view */
-    }
-    
-    .video-label {
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
-      background-color: rgba(0, 0, 0, 0.6);
-      color: white;
-      padding: 0.25rem 0.5rem;
-      border-radius: 4px;
-      font-size: 0.8rem;
-      z-index: 5;
-    }
-    
-    .controls {
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 0.5rem 0;
-      flex-wrap: wrap;
-    }
-    
-    button {
-      padding: 0.6rem 1rem;
-      border: none;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      touch-action: manipulation;
-    }
-    
-    button:active {
-      transform: scale(0.98);
-    }
-    
-    button:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-    
-    .btn-primary {
-      background-color: var(--primary);
-      color: white;
-    }
-    
-    .btn-primary:hover:not(:disabled) {
-      background-color: var(--primary-hover);
-    }
-    
-    .btn-danger {
-      background-color: var(--danger);
-      color: white;
-    }
-    
-    .btn-danger:hover:not(:disabled) {
-      background-color: #d63d62;
-    }
-    
-    .btn-secondary {
-      background-color: var(--gray);
-      color: white;
-    }
-    
-    .btn-secondary:hover:not(:disabled) {
-      background-color: #5a6268;
-    }
-    
-    .waiting-screen {
-      position: absolute;
       top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      z-index: 10;
-      border-radius: 8px;
-      text-align: center;
-      padding: 1rem;
-    }
-    
-    .waiting-screen h2 {
-      margin-bottom: 1rem;
-      font-size: 1.2rem;
-    }
-    
-    .waiting-screen p {
-      font-size: 0.9rem;
-      max-width: 80%;
-    }
-    
-    .spinner {
-      width: 40px;
-      height: 40px;
-      border: 4px solid rgba(255, 255, 255, 0.3);
-      border-radius: 50%;
-      border-top-color: white;
-      animation: spin 1s ease-in-out infinite;
-      margin-bottom: 1rem;
-    }
-    
-    .debug-panel {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      color: #0f0;
-      font-family: monospace;
-      font-size: 10px;
-      padding: 5px;
       z-index: 1000;
-      max-height: 100px;
-      overflow-y: auto;
-      display: none;
     }
-    
-    .connection-error {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: rgba(239, 71, 111, 0.9);
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: white !important;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-link {
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.9) !important;
+      padding: 0.5rem 1rem;
+    }
+
+    .nav-link:hover {
+      color: white !important;
+    }
+
+    .btn-gradient {
+      background: var(--gradient);
       color: white;
-      padding: 1rem;
-      border-radius: 8px;
-      text-align: center;
-      z-index: 20;
-      max-width: 80%;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      border: none;
+      transition: transform 0.2s ease;
     }
-    
-    .connection-error h3 {
+
+    .btn-gradient:hover {
+      transform: translateY(-2px);
+      color: white;
+    }
+
+    /* Hero Section - Optimized */
+    .hero-section {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: white;
+      padding: 8rem 0 4rem;
+      margin-top: 70px;
+    }
+
+    .hero-title {
+      font-weight: 800;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(to right, #fff, #c7d2fe);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+      max-width: 600px;
+    }
+
+    .hero-image {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 1rem;
+      border: 4px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Features Section - Simplified */
+    .features-section {
+      padding: 4rem 0;
+      background: #f8fafc;
+    }
+
+    .section-title {
+      font-weight: 800;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+
+    .section-subtitle {
+      font-size: 1.15rem;
+      color: #64748b;
+      margin-bottom: 3rem;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      height: 100%;
+    }
+
+    .feature-icon {
+      width: 50px;
+      height: 50px;
+      background: rgba(99, 102, 241, 0.1);
+      color: var(--primary);
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .feature-title {
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    /* CTA Section - Optimized */
+    .cta-section {
+      padding: 4rem 0;
+      background: var(--gradient);
+      color: white;
+    }
+
+    .cta-title {
+      font-weight: 800;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-cta {
+      background: white;
+      color: var(--primary);
+      font-weight: 600;
+      padding: 0.75rem 2rem;
+      border-radius: 0.5rem;
+      transition: transform 0.2s ease;
+    }
+
+    .btn-cta:hover {
+      transform: translateY(-3px);
+      color: var(--primary);
+    }
+
+    /* Footer - Simplified */
+    .footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 3rem 0 1.5rem;
+    }
+
+    .footer-title {
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links li {
       margin-bottom: 0.5rem;
     }
-    
-    .connection-error button {
-      margin-top: 1rem;
-      background-color: white;
-      color: var(--danger);
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: color 0.2s ease;
     }
-    
-    @keyframes pulse {
-      0% {
-        opacity: 0.6;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        opacity: 0.6;
-      }
-    }
-    
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-    
-    .hidden {
-      display: none !important;
-    }
-    
-    /* iOS specific fixes */
-    @supports (-webkit-touch-callout: none) {
-      body, .container {
-        height: -webkit-fill-available;
-      }
-      
-      video {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-      }
-      
-      button {
-        padding: 0.7rem 1.2rem;
-      }
-    }
-    
-    /* Connection quality indicator */
-    .connection-quality {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background-color: rgba(0, 0, 0, 0.6);
+
+    .footer-links a:hover {
       color: white;
-      padding: 0.25rem 0.5rem;
-      border-radius: 4px;
-      font-size: 0.8rem;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 1.5rem;
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    /* Fixed Start Button */
+    .fixed-start-btn {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      z-index: 999;
+      background: var(--gradient);
+      color: white;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
       display: flex;
       align-items: center;
-      gap: 5px;
-      z-index: 5;
+      justify-content: center;
+      font-size: 1.4rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s ease;
     }
-    
-    .quality-bars {
-      display: flex;
-      gap: 2px;
+
+    .fixed-start-btn:hover {
+      transform: scale(1.1);
+      color: white;
     }
-    
-    .quality-bar {
-      width: 3px;
-      height: 10px;
-      background-color: rgba(255, 255, 255, 0.3);
-    }
-    
-    .quality-bar.active {
-      background-color: var(--success);
-    }
-    
-    .quality-poor .quality-bar.active {
-      background-color: var(--danger);
-    }
-    
-    .quality-medium .quality-bar.active {
-      background-color: var(--warning);
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .hero-section {
+        text-align: center;
+      }
+
+      .hero-subtitle {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-buttons {
+        justify-content: center;
+      }
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <header>
-      <h1>Random Video Chat</h1>
-      <p class="subtitle">Talk to random strangers instantly</p>
-    </header>
-    
-    <div class="status-bar">
-      <div class="status-indicator">
-        <div class="status-dot disconnected" id="statusDot"></div>
-        <span id="statusText">Disconnected</span>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="https://www.omegel.in/">
+        <i class="bi bi-camera-video-fill"></i> Omegel.in
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon" style="color: white;"><i class="bi bi-list"></i></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="https://www.omegel.in/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="community-guidelines.html">Privacy</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="term.html">Terms</a>
+          </li>
+        </ul>
+        <a href="user.html" class="btn btn-gradient d-none d-lg-inline-flex">
+          Start Chat Now
+        </a>
       </div>
-      <div class="user-count" id="userCount">0 online</div>
     </div>
-    
-    <div class="video-container">
-      <div class="video-wrapper">
-        <video id="localVideo" autoplay muted playsinline></video>
-        <div class="video-label">You</div>
-      </div>
-      
-      <div class="video-wrapper">
-        <video id="remoteVideo" autoplay playsinline></video>
-        <div class="video-label">Stranger</div>
-        <div class="connection-quality hidden" id="connectionQuality">
-          <span>Connection:</span>
-          <div class="quality-bars">
-            <div class="quality-bar"></div>
-            <div class="quality-bar"></div>
-            <div class="quality-bar"></div>
-            <div class="quality-bar"></div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="hero-content">
+            <h1 class="hero-title">
+              Free Random Video Chat with Strangers
+            </h1>
+            <p class="hero-subtitle">Meet new people from around the world instantly. No registration required - start
+              anonymous video chats with one click.</p>
+            <div class="hero-buttons d-flex gap-3">
+              <a href="user.html" class="btn btn-gradient">
+                <i class="bi bi-play-fill"></i> Start Chatting
+              </a>
+              <a href="#features" class="btn btn-outline-light">
+                Learn More
+              </a>
+            </div>
           </div>
         </div>
-        
-        <div class="waiting-screen" id="waitingScreen">
-          <div class="spinner"></div>
-          <h2>Finding someone to chat with...</h2>
-          <p>Please wait while we connect you with a random stranger</p>
-        </div>
-        
-        <div class="connection-error hidden" id="connectionError">
-          <h3><!--Connection Failed--></h3>
-          <p><!--Unable to connect to another user. This could be due to network issues or firewall settings.--></p>
-          <button id="retryBtn">Try Again</button>
+        <div class="col-lg-6 mt-4 mt-lg-0">
+          <img src="girl.jpg" alt="Omegel.in random video chat interface" class="img-fluid hero-image" loading="lazy">
         </div>
       </div>
     </div>
-    
-    <div class="controls">
-      <button id="startBtn" class="btn-primary">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-          <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z"/>
-        </svg>
-        Start
-      </button>
-      
-      <button id="nextBtn" class="btn-primary" disabled>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
-        </svg>
-        Next
-      </button>
-      
-      <button id="audioBtn" class="btn-secondary" disabled>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-          <path d="M3.5 6.5A.5.5 0 0 1 4 7v1a4 4 0 0 0 8 0V7a.5.5 0 0 1 1 0v1a5 5 0 0 1-4.5 4.975V15h3a.5.5 0 0 1 0 1h-7a.5.5 0 0 1 0-1h3v-2.025A5 5 0 0 1 3 8V7a.5.5 0 0 1 .5-.5z"/>
-          <path d="M10 8a2 2 0 1 1-4 0V3a2 2 0 1 1 4 0v5zM8 0a3 3 0 0 0-3 3v5a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3z"/>
-        </svg>
-        Mute
-      </button>
-      
-      <button id="videoBtn" class="btn-secondary" disabled>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M0 5a2 2 0 0 1 2-2h7.5a2 2 0 0 1 1.983 1.738l3.11-1.382A1 1 0 0 1 16 4.269v7.462a1 1 0 0 1-1.406.913l-3.111-1.382A2 2 0 0 1 9.5 13H2a2 2 0 0 1-2-2V5zm11.5 5.175 3.5 1.556V4.269l-3.5 1.556v4.35zM2 4a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h7.5a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H2z"/>
-        </svg>
-        Video
-      </button>
-      
-      <button id="endBtn" class="btn-danger" disabled>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M2.146 2.146a.5.5 0 0 1 .708 0L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854a.5.5 0 0 1 0-.708z"/>
-        </svg>
-        End
-      </button>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <h2 class="section-title">Why Choose Omegel.in</h2>
+          <p class="section-subtitle">The best Omegle alternative for random video chats</p>
+        </div>
+      </div>
+      <div class="row g-4 mt-2">
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="bi bi-shield-lock"></i>
+            </div>
+            <h3 class="feature-title">100% Anonymous</h3>
+            <p class="feature-text">Chat without revealing your identity. No accounts or personal info needed.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="bi bi-lightning-charge"></i>
+            </div>
+            <h3 class="feature-title">Instant Connection</h3>
+            <p class="feature-text">Start talking to strangers in seconds with our lightning-fast matching system.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="bi bi-globe"></i>
+            </div>
+            <h3 class="feature-title">Worldwide Users</h3>
+            <p class="feature-text">Meet people from all over the globe and discover different cultures.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="bi bi-phone"></i>
+            </div>
+            <h3 class="feature-title">Mobile Friendly</h3>
+            <p class="feature-text">Works perfectly on all devices - smartphones, tablets and computers.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="bi bi-arrow-repeat"></i>
+            </div>
+            <h3 class="feature-title">Unlimited Switches</h3>
+            <p class="feature-text">Skip to a new stranger anytime with our simple next button.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section text-center">
+    <div class="container">
+      <h2 class="cta-title">Ready to Meet Interesting People?</h2>
+      <p class="cta-text mb-4">Join thousands of users having fun conversations right now.</p>
+      <a href="user.html" class="btn btn-cta btn-lg px-5">
+        <i class="bi bi-camera-video-fill"></i> Start Free Video Chat
+      </a>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <h2 class="section-title text-center mb-5">Frequently Asked Questions</h2>
+      <div class="accordion" id="faqAccordion">
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+              Is Omegel.in really free?
+            </button>
+          </h3>
+          <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              Yes! Omegel.in is completely free to use with no hidden charges. You can enjoy unlimited random video
+              chats without paying anything.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+              Do I need to create an account?
+            </button>
+          </h3>
+          <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              No registration is required. You can start chatting immediately without creating any account or profile.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h3 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+              Is Omegel.in safe to use?
+            </button>
+          </h3>
+          <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+            <div class="accordion-body">
+              While we provide tools for safe chatting, we recommend not sharing personal information with strangers.
+              You can report inappropriate users at any time.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <!-- About Section -->
+      <div class="col-lg-4 mb-4 mb-lg-0">
+        <h5 class="footer-title">Omegel.in</h5>
+        <p>The best random video chat platform to meet new people online and make exciting connections.</p>
+      </div>
+
+      <!-- Links Section -->
+      <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+        <h5 class="footer-links-title">Links</h5>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="community-guidelines.html">Privacy Policy</a></li>
+          <li><a href="term.html">Terms & Conditions</a></li>
+          <li><a href="contactus.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+<!-- Social Media Section -->
+<div class="col-lg-4 col-md-4">
+  <h5 class="footer-links-title">Connect With Us</h5>
+  <div class="d-flex gap-3 mt-3">
+    <a href="#" class="text-white"><i class="bi bi-facebook fs-5"></i></a>
+    <a href="#" class="text-white"><i class="bi bi-twitter fs-5"></i></a>
+    <a href="#" class="text-white"><i class="bi bi-instagram fs-5"></i></a>
+  </div>
+  <p class="mt-3">For help or inquiries, email us at <a href="mailto:diwkar@omegel.in"
+      class="text-white">diwkar@omegel.in</a></p>
+</div>
+
+    <!-- Footer Bottom Section -->
+    <div class="footer-bottom">
+      <p>&copy; 2025 Omegel.in. All rights reserved.
     </div>
   </div>
+</footer>
+
+
+  <!-- Fixed Start Button -->
+  <a href="user.html" class="fixed-start-btn">
+    <i class="bi bi-camera-video"></i>
+  </a>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    crossorigin="anonymous"></script>
+
+  <!-- Simple Analytics -->
+  <script>
   
-
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="client.js"></script>
+    // Make navbar solid on scroll
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 50) {
+        document.querySelector('.navbar').style.background = 'rgba(15, 23, 42, 0.98)';
+      } else {
+        document.querySelector('.navbar').style.background = 'rgba(15, 23, 42, 0.98)';
+      }
+    });
+  </script>
 </body>
-</html>
 
+</html>
