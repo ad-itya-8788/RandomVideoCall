@@ -9,13 +9,33 @@
 
 <url>
   <loc>https://www.omegel.in/</loc>
-  <lastmod>2025-04-13T19:52:52+00:00</lastmod>
+  <lastmod>2025-04-13T20:55:00+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://www.omegel.in/user.html</loc>
-  <lastmod>2025-04-13T19:52:52+00:00</lastmod>
+  <loc>https://www.omegel.in/community-guidelines.html</loc>
+  <lastmod>2025-04-13T20:55:00+00:00</lastmod>
   <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.omegel.in/term.html</loc>
+  <lastmod>2025-04-13T20:55:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.omegel.in/user.html</loc>
+  <lastmod>2025-04-13T20:55:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.omegel.in/contactus.html</loc>
+  <lastmod>2025-04-13T20:55:00+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.omegel.in/index.html</loc>
+  <lastmod>2025-04-13T20:55:00+00:00</lastmod>
+  <priority>0.64</priority>
 </url>
 
 
