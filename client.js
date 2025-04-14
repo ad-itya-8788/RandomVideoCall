@@ -1,10 +1,5 @@
-// Production-ready WebRTC client for random video chat (Omegle-style)
-// Fixed version with improved connection handling and mobile support
 
-// Debug mode - set to true to show debug panel
 const DEBUG_MODE = false
-// Optimize the ICE servers list to use fewer but more reliable servers
-// Replace the iceServers object with:
 const iceServers = {
   iceServers: [
     { urls: "stun:stun.l.google.com:19302" },
@@ -23,10 +18,7 @@ const iceServers = {
   iceCandidatePoolSize: 10,
   iceTransportPolicy: "all",
 }
-// Detect if running on mobile
 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
-
-// Enhanced media constraints for reliable audio/video
 const mediaConstraints = {
   audio: {
     echoCancellation: true,
@@ -46,7 +38,6 @@ const mediaConstraints = {
     },
 }
 
-// Global variables
 let socket
 let localStream
 let remoteStream
@@ -57,15 +48,14 @@ let isAudioMuted = false
 let isVideoOff = false
 let reconnectAttempts = 1
 const maxReconnectAttempts = 5
-const reconnectInterval = 10000 // 2 seconds
+const reconnectInterval = 10000 
 let connectionTimeout
-const connectionTimeoutDuration = 30000 // 20 seconds
+const connectionTimeoutDuration = 30000 
 let iceGatheringTimeout
-const iceGatheringTimeoutDuration = 20000 // 10 seconds
+const iceGatheringTimeoutDuration = 20000 
 let statsInterval
 let isSocketConnected = false
 
-// DOM elements
 const localVideo = document.getElementById("localVideo")
 const remoteVideo = document.getElementById("remoteVideo")
 const startBtn = document.getElementById("startBtn")
@@ -82,21 +72,17 @@ const retryBtn = document.getElementById("retryBtn")
 const debugPanel = document.getElementById("debugPanel")
 const connectionQuality = document.getElementById("connectionQuality")
 
-// Initialize the application
 function init() {
-  // Show debug panel if in debug mode
   if (DEBUG_MODE) {
     debugPanel.style.display = "block"
   }
 
-  // Log initialization
   logDebug("Initializing application...")
   logDebug(`Running on ${isMobile ? "mobile" : "desktop"} device`)
 
-  // Connect to signaling server with reconnection
   connectSocket()
 
-  // Button event listeners
+
   startBtn.addEventListener("click", startChatting)
   nextBtn.addEventListener("click", findNextStranger)
   audioBtn.addEventListener("click", toggleAudio)
@@ -104,24 +90,19 @@ function init() {
   endBtn.addEventListener("click", endChat)
   retryBtn.addEventListener("click", handleRetry)
 
-  // Video element event listeners
   remoteVideo.addEventListener("loadedmetadata", () => {
     logDebug("Remote video loaded metadata")
   })
 
-  // Update UI
   updateStatus("disconnected", "Ready to start")
 
-  // Handle page visibility changes
   document.addEventListener("visibilitychange", handleVisibilityChange)
 }
 
-// Connect to socket server with error handling
 function connectSocket() {
   try {
     logDebug("Connecting to signaling server...")
 
-    // Initialize socket connection
     socket = io({
       reconnectionAttempts: 5,
       reconnectionDelay: 1000,
@@ -129,7 +110,6 @@ function connectSocket() {
       transports: ["websocket", "polling"],
     })
 
-    // Socket event listeners
     socket.on("connect", handleSocketConnect)
     socket.on("disconnect", handleSocketDisconnect)
     socket.on("connect_error", handleSocketConnectError)
@@ -148,7 +128,6 @@ function connectSocket() {
   }
 }
 
-// Handle socket connection
 function handleSocketConnect() {
   logDebug("Connected to signaling server")
   isSocketConnected = true
@@ -156,20 +135,17 @@ function handleSocketConnect() {
   updateStatus("disconnected", "Ready to start")
 }
 
-// Handle socket disconnection
 function handleSocketDisconnect() {
   logDebug("Disconnected from signaling server")
   isSocketConnected = false
   updateStatus("disconnected", "Server disconnected")
 
-  // Clean up any ongoing call
   if (isConnected) {
     cleanupConnection()
     showConnectionError("Lost connection to server")
   }
 }
 
-// Handle socket connection error
 function handleSocketConnectError(error) {
   logDebug("Socket connection error:", error)
   isSocketConnected = false
@@ -183,23 +159,22 @@ function handleSocketConnectError(error) {
   }
 }
 
-// Handle socket error
 function handleSocketError(error) {
   logDebug("Socket error:", error)
   updateStatus("disconnected", "Server error")
 }
 
-// Update online user count
 function updateUserCount(count) {
   userCount.textContent = `${count} online`
 }
 
-// Start chatting with random strangers
 async function startChatting() {
   try {
-    // Check if socket is connected
     if (!isSocketConnected) {
-      showConnectionError("Not connected to server. Please refresh the page and try again. ")
+      /*showConnectionError("Not connected to server. Please refresh the page and try again. ")*/
+
+      showConnectionError("Click To start Chat");
+
       return
     }
 

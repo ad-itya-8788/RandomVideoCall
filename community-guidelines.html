@@ -198,7 +198,26 @@
   <footer>
     <a href="https://www.omegel.in/" target="_blank">© omegel.in</a> 2025 All rights reserved.
   </footer>
+<script>
+   document.addEventListener('contextmenu', (e) => e.preventDefault());
 
+    function ctrlShiftKey(e, keyCode) {
+      return e.ctrlKey && e.shiftKey && e.keyCode === keyCode.charCodeAt(0);
+    }
+
+    document.onkeydown = (e) => {
+      if (
+        e.keyCode === 123 ||
+        ctrlShiftKey(e, 'I') ||
+        ctrlShiftKey(e, 'J') ||
+        ctrlShiftKey(e, 'C') || (e.ctrlKey && e.keyCode === 85)
+      ) {
+        e.preventDefault();
+        return false;
+      }
+    };
+
+</script>
 </body>
 
 </html>

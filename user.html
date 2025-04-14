@@ -378,13 +378,11 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background-color: rgba(239, 71, 111, 0.9);
-      color: white;
-      padding: 1rem;
+      background-color: rgba(178, 117, 131, 0.075);
+      color: #ffffff;
       border-radius: 8px;
       text-align: center;
       z-index: 20;
-      max-width: 80%;
     }
 
     .connection-error h3 {
@@ -393,7 +391,7 @@
 
     .connection-error button {
       margin-top: 1rem;
-      background-color: white;
+      background-color: rgba(249, 246, 246, 0.895);
       color: var(--danger);
     }
 
@@ -634,7 +632,7 @@
 <body>
   <div class="container">
     <header>
-      <h1>Random Video Chat</h1>
+      <h1><b>Random Video Chat</b></h1>
       <p class="subtitle">Talk to random strangers instantly</p>
     </header>
 
@@ -688,7 +686,7 @@
         <div class="connection-error hidden" id="connectionError">
           <h3><!--Connection Failed--></h3>
           <p><!--Unable to connect to another user. This could be due to network issues or firewall settings.--></p>
-          <button id="retryBtn">Try Again</button>
+          <button id="retryBtn">Click</button>
         </div>
       </div>
       <div class="video-wrapper">
@@ -715,15 +713,14 @@
   </div>
   <!-- Added footer -->
   <footer>
-    <p>&copy; 2023 Random Video Chat. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    <p>&copy; 2025 Random Video Chat. <a href="community-guidelines.html">Privacy Policy</a> | <a href="term.html">Terms of Service</a></p>
   </footer>
   <script src="/socket.io/socket.io.js"></script>
   <script src="client.js"></script>
 
   <script>
-    // Add touch event listeners to ensure buttons work on mobile
-    document.addEventListener('DOMContentLoaded', function () {
-      // Auto-trigger the Start button click when the page loads
+
+document.addEventListener('DOMContentLoaded', function () {
       setTimeout(function () {
         const startBtn = document.getElementById('startBtn');
         if (startBtn) {
@@ -731,7 +728,7 @@
         }
       }, 500);
 
-      // Add touch feedback for buttons
+
       const buttons = document.querySelectorAll('button');
       buttons.forEach(button => {
         button.addEventListener('touchstart', function () {
@@ -743,33 +740,50 @@
         }, { passive: true });
       });
 
-      // Prevent default touch behavior that might interfere with button clicks
       document.addEventListener('touchmove', function (e) {
         if (e.target.tagName === 'BUTTON') {
           e.preventDefault();
         }
       }, { passive: false });
 
-      // Add functionality for the new overlay buttons
       const strangerNextBtn = document.getElementById('strangerNextBtn');
       const strangerMuteBtn = document.getElementById('strangerMuteBtn');
       const nextBtn = document.getElementById('nextBtn');
       const audioBtn = document.getElementById('audioBtn');
 
-      // Connect overlay next button to main next button
       if (strangerNextBtn && nextBtn) {
         strangerNextBtn.addEventListener('click', function () {
           nextBtn.click();
         });
       }
 
-      // Connect overlay mute button to main audio button
       if (strangerMuteBtn && audioBtn) {
         strangerMuteBtn.addEventListener('click', function () {
           audioBtn.click();
         });
       }
     });
+
+
+
+     document.addEventListener('contextmenu', (e) => e.preventDefault());
+
+      function ctrlShiftKey(e, keyCode) {
+        return e.ctrlKey && e.shiftKey && e.keyCode === keyCode.charCodeAt(0);
+      }
+
+      document.onkeydown = (e) => {
+        if (
+          e.keyCode === 123 ||
+          ctrlShiftKey(e, 'I') ||
+          ctrlShiftKey(e, 'J') ||
+          ctrlShiftKey(e, 'C') || (e.ctrlKey && e.keyCode === 85)
+        ) {
+          e.preventDefault();
+          return false;
+        }
+      };
+
   </script>
 </body>
 
